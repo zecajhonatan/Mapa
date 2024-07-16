@@ -1,9 +1,17 @@
-import express from 'express';
-import { createServer } from 'node:http';
-import { fileURLToPath } from 'node:url';
+// import express from 'express';
+let express = require("express")
+
+// import { createServer } from 'node:http';
+let createServer = require("node:http")
+
+// import { fileURLToPath } from 'node:url';
 // import { dirname, join } from 'node:path';
 import path from 'node:path';
-import { Server } from 'socket.io';
+let path = require("node:path")
+
+// import { Server } from 'socket.io';
+
+let Server = require("socket.io")
 
 const app = express();
 const server = createServer(app);
@@ -18,8 +26,8 @@ app.set('views', path.join(__dirname, 'views'));
 // const __dirname = dirname(fileURLToPath(import.meta.url));
 
 app.get('/', (req, res) => {
-  // res.sendFile(join(__dirname, 'index'));
-  res.render('index.ejs')
+  res.sendFile(path.join(__dirname, 'index.ejs'));
+  // res.render('index.ejs')
 });
 
 let dados = {}
