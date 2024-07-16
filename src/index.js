@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 let dados = {}
 
 io.on('connection', (socket) => {
-  console.log('Novo Cliente Conectado')
+  console.log('Novo Cliente Conectado' + socket.id)
 
   socket.on('updateLocation', (msg) => {
     dados[socket.id] = msg
@@ -40,3 +40,4 @@ io.on('connection', (socket) => {
 server.listen(PORT, () => {
   console.log(`server running at http://localhost:${PORT}`);
 });
+
